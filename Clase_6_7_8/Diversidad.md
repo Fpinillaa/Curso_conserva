@@ -1,7 +1,6 @@
 # Clase 6
 
-En esta clase se obtendrán los resultados de diversidad genética correspondientes a los distintos conjuntos de datos.
-
+## Población
 Se estimarán los siguientes parámetros: heterocigosidad esperada, heterocigosidad observada, diversidad nucleotídica y estadístico de Tajima’s D.
 En el caso de la heterocigosidad, al disponer de ambos valores (esperada y observada) será posible evaluar si las poblaciones se encuentran en equilibrio de Hardy–Weinberg. Aquellas poblaciones que se desvíen de dicho equilibrio podrían estar siendo afectadas por presiones selectivas, cuellos de botella u otros procesos evolutivos.
 
@@ -178,7 +177,7 @@ done
 echo "==== Análisis completado para todas las poblaciones ===="
 ```
 
-## Graficamos
+### Graficamos
 
 ```R
 ## Librerias
@@ -361,3 +360,18 @@ write_tsv(pixy_pop_chr,  file.path(out_dir, "summary_pixy_population_by_chr.tsv"
 
 message("Listo. Resúmenes y figuras guardados en: ", out_dir)
 ```
+## Especies
+
+En el caso de Spheniscus, se realizará un árbol de Neighbour-Joining mediante la utilización del siguiente repositorio: https://github.com/sansubs/vcf2pop
+.
+Para ello, es necesario descargar el repositorio y abrir el archivo .html que contiene la interfaz principal.
+
+En esta página se debe cargar el archivo VCF y seleccionar las siguientes opciones:
+
+1. Genetic Distance
+2. Use SNVs for each pair of genomes
+3. Neighbour-Joining tree (Unrooted)
+4. Newick tree
+5. All
+
+Con estas configuraciones se generará un resultado en texto plano, el cual puede cargarse posteriormente en [iTol](https://itol.embl.de/), donde se visualizará el árbol generado.
